@@ -38,3 +38,47 @@ Total: 875 cookies
 
 // display list on sales.html
 
+/*
+object
+- store location
+- store min hourly customers
+- store max hourly customers
+- store average cookies per customer
+- use method of that object to generate random number of customers per hour
+- calculate and store cookies purchased for each hour at each location(use random number of customer times average)
+- store the result for each location in a separate array
+- display values of each array as unordered list
+- get sum
+*/
+
+var seattleObj = {
+  location: 'Seattle',
+  minHourlyCustomer: 23,
+  maxHourlyCustomer: 65,
+  avgCookiePerCustomer: 6.3,
+  startHour: 6,
+  endHour: 19,
+  hoursOpened: this.endHour - this.startHour,
+  generateNumberOfCustomer: function () {
+    return Math.random() * (this.maxHourlyCustomer - this.minHourlyCustomer + 1) + this.minHourlyCustomer;
+  },
+  generateCookiePerHour: function () {
+    var cookiesPerHourArray = [];
+    for (var i = this.startHour; i < this.endHour; i++) {
+      cookiesPerHourArray.push(this.generateNumberOfCustomer() * this.avgCookiePerCustomer);
+    }
+    return cookiesPerHourArray;
+  },
+  generateTotalSum: function() {
+    var total = 0;
+    for (var j = 0; j < this.cookieSaleEveryHour.length; j++) {
+      total += this.cookieSaleEveryHour[j];
+    }
+    return total;
+  },
+  cookieSaleEveryHour: this.generateCookiePerHour(),
+  sum: this.generateTotalSum()
+};
+
+console.log(seattleObj);
+

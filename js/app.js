@@ -1,21 +1,24 @@
 'use strict';
 
-// sales Data
+// Sales Data
 
 // create separate JS object literals for each shop location that outputs the following to the sales.html file
 
-// Stores the min/max hourly customers, and the average cookies per customer, in object properties
-
-// Uses a method of that object to generate a random number of customers per hour. Objects/Math/random
-
-// Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated
-
-// Store the results for each location in a separate array… perhaps as a property of the object representing that location
+/*
+object
+- store location
+- store min hourly customers
+- store max hourly customers
+- store average cookies per customer
+- use method to generate random number of customers per hour
+- calculate and store cookies purchased for each hour at each location(use random number of customer times average)
+- store the result for each location in a separate array
+- display values of each array as unordered list
+- get sum
+*/
 
 //Display the values of each array as unordered lists in the browser
-
 /*
-Calculating the sum of these hourly totals; your output for each location should look like this:
 
 Seattle
 
@@ -36,49 +39,39 @@ Seattle
 Total: 875 cookies
 */
 
-// display list on sales.html
-
-/*
-object
-- store location
-- store min hourly customers
-- store max hourly customers
-- store average cookies per customer
-- use method of that object to generate random number of customers per hour
-- calculate and store cookies purchased for each hour at each location(use random number of customer times average)
-- store the result for each location in a separate array
-- display values of each array as unordered list
-- get sum
-*/
-
-var seattleObj = {
+var seattle = {
   location: 'Seattle',
   minHourlyCustomer: 23,
   maxHourlyCustomer: 65,
   avgCookiePerCustomer: 6.3,
   startHour: 6,
-  endHour: 19,
-  hoursOpened: this.endHour - this.startHour,
-  generateNumberOfCustomer: function () {
-    return Math.random() * (this.maxHourlyCustomer - this.minHourlyCustomer + 1) + this.minHourlyCustomer;
+  endHour: 20,
+  cookieSaleEveryHour: [],
+  totalSum: 0,
+  generateNumberOfCustomer: function() {
+    return Math.round(Math.random() * (this.maxHourlyCustomer - this.minHourlyCustomer + 1) + this.minHourlyCustomer);
   },
-  generateCookiePerHour: function () {
-    var cookiesPerHourArray = [];
+  generateCookiePerHour: function() {
+    var cookieSales = [];
     for (var i = this.startHour; i < this.endHour; i++) {
-      cookiesPerHourArray.push(this.generateNumberOfCustomer() * this.avgCookiePerCustomer);
+      cookieSales.push(Math.round(this.generateNumberOfCustomer() * this.avgCookiePerCustomer));
     }
-    return cookiesPerHourArray;
+    this.cookieSaleEveryHour = cookieSales;
   },
   generateTotalSum: function() {
-    var total = 0;
+    var sum = 0;
     for (var j = 0; j < this.cookieSaleEveryHour.length; j++) {
-      total += this.cookieSaleEveryHour[j];
+      sum += this.cookieSaleEveryHour[j];
     }
-    return total;
+    this.totalSum = sum;
   },
-  cookieSaleEveryHour: this.generateCookiePerHour(),
-  sum: this.generateTotalSum()
 };
 
-console.log(seattleObj);
-
+// seattle.generateCookiePerHour();
+// seattle.generateTotalSum();
+console.log('first run: ' + seattle.totalSum);
+console.log('first run: ' + seattle.cookieSaleEveryHour);
+seattle.generateCookiePerHour();
+seattle.generateTotalSum();
+console.log(seattle.totalSum);
+console.log(seattle.cookieSaleEveryHour);

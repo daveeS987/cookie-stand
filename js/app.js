@@ -179,9 +179,9 @@ for (var n = 0; n < dubaiFormatedList.length; n++) {
 // Paris
 var paris = {
   location: 'Paris',
-  minHourlyCustomer: 11,
+  minHourlyCustomer: 20,
   maxHourlyCustomer: 38,
-  avgCookiePerCustomer: 3.7,
+  avgCookiePerCustomer: 2.3,
   startHour: 6,
   endHour: 20,
   cookieSaleEveryHour: [],
@@ -221,9 +221,9 @@ for (var p = 0; p < dubaiFormatedList.length; p++) {
 // Lima
 var lima = {
   location: 'Lima',
-  minHourlyCustomer: 11,
-  maxHourlyCustomer: 38,
-  avgCookiePerCustomer: 3.7,
+  minHourlyCustomer: 2,
+  maxHourlyCustomer: 16,
+  avgCookiePerCustomer: 4.6,
   startHour: 6,
   endHour: 20,
   cookieSaleEveryHour: [],

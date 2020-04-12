@@ -4,6 +4,7 @@ body {
 
 header {
   padding: 20px;
+  margin: 20px;
 }
 
 th {
@@ -16,5 +17,9 @@ th {
 td {
   border-style: solid;
   border-width: 1px;
-  padding: 10px;
+  padding: 15px;
+}
+
+table {
+  margin: 20px;
 }

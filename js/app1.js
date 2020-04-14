@@ -41,12 +41,13 @@ Store.prototype.renderRow = function() {
   var thEl = document.createElement('th');
   thEl.textContent = `${this.storeName}`;
   trEl.appendChild(thEl);
-  // loop over sales and add amount
+  // loop over salesArray and enter amount
   for (var i = 0; i < this.cookieSaleEveryHour.length; i++) {
     var tdEl = document.createElement('td');
     tdEl.textContent = `${this.cookieSaleEveryHour[i]}`;
     trEl.appendChild(tdEl);
   }
+  // enter sum at the end
   tdEl = document.createElement('td');
   tdEl.textContent = `${this.totalSum}`;
   trEl.appendChild(tdEl);
@@ -61,24 +62,26 @@ new Store('Lima', 2, 16, 4.6);
 
 function createHeading(timesArray) {
   var pEl = document.getElementById('table');
+  // create table row
   var trEl = document.createElement('tr');
   pEl.appendChild(trEl);
+  // create table heading
   var thEl = document.createElement('th');
   trEl.appendChild(thEl);
-
+  // add Times heading
   for (var i = 0; i < timesArray.length; i++) {
-    // Add times
     thEl = document.createElement('th');
     thEl.textContent = `${timesArray[i]}`;
     trEl.appendChild(thEl);
   }
+  // add Daily Location total
   var thElTotal = document.createElement('th');
   thElTotal.textContent = 'Daily Location Total';
   trEl.appendChild(thElTotal);
 }
 createHeading(timesFormatArray);
 
-// Call on GenerateArrayCookiePerHour & GenerateTotalSum ////
+// Call on GenerateArrayCookiePerHour, GenerateTotalSum, and Render ////
 function callOnGenerateAndRender(array) {
   for (var i = 0; i < array.length; i++) {
     array[i].generateArrayCookiePerHour();
@@ -91,7 +94,7 @@ callOnGenerateAndRender(storeArray);
 
 
 
-// function createStoreSalesRow (storeArr) {
+// function createStoreSalesTableBody (storeArr) {
 //   for (var i = 0; i < storeArr.length; i++) {
 //     // Create table row
 //     var parentElTable = document.getElementById('table');
@@ -112,7 +115,7 @@ callOnGenerateAndRender(storeArray);
 //     tableRowEl.appendChild(totalTd);
 //   }
 // }
-// createStoreSalesRow(storeArray);
+// createStoreSalesTableBody(storeArray);
 
 
 
@@ -128,7 +131,8 @@ function getTotalPerHour(storeArr) {
   return hourlyTotalArray;
 }
 var arrayOfTotalPerHour = getTotalPerHour(storeArray);
-console.log(arrayOfTotalPerHour);
+
+
 
 function getOverallTotal(storeArr) {
   var total = 0;
@@ -138,6 +142,8 @@ function getOverallTotal(storeArr) {
   return total;
 }
 var totalOverAll = getOverallTotal(storeArray);
+
+
 
 function createTableFooter(arrayOfTotal) {
   var pEl = document.getElementById('table');

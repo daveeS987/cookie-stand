@@ -11,6 +11,8 @@ function Store(storeName, minHourlyCustomer, maxHourlyCustomer, avgCookiePerCust
   this.avgCookiePerCustomer = avgCookiePerCustomer;
   this.cookieSaleEveryHour = cookieSaleEveryHour;
   this.totalSum = totalSum;
+  this.generateArrayCookiePerHour();
+  this.generateTotalSum();
   storeArray.push(this);
 }
 
@@ -41,17 +43,17 @@ Store.prototype.renderRow = function() {
   pEl.appendChild(trEl);
   // create city Name
   var thEl = document.createElement('th');
-  thEl.textContent = `${this.storeName}`;
+  thEl.textContent = this.storeName;
   trEl.appendChild(thEl);
   // loop over salesArray and enter amount
   for (var i = 0; i < this.cookieSaleEveryHour.length; i++) {
     var tdEl = document.createElement('td');
-    tdEl.textContent = `${this.cookieSaleEveryHour[i]}`;
+    tdEl.textContent = this.cookieSaleEveryHour[i];
     trEl.appendChild(tdEl);
   }
   // enter sum at the end
   tdEl = document.createElement('td');
-  tdEl.textContent = `${this.totalSum}`;
+  tdEl.textContent = this.totalSum;
   trEl.appendChild(tdEl);
 };
 
@@ -62,8 +64,9 @@ new Store('Dubai', 11, 38, 3.7);
 new Store('Paris', 20, 38, 2.3);
 new Store('Lima', 2, 16, 4.6);
 
+var pEl = document.getElementById('table');
+
 function createHeading(timesArray) {
-  var pEl = document.getElementById('table');
   // create table row
   var trEl = document.createElement('tr');
   pEl.appendChild(trEl);
@@ -73,7 +76,7 @@ function createHeading(timesArray) {
   // add Times heading
   for (var i = 0; i < timesArray.length; i++) {
     thEl = document.createElement('th');
-    thEl.textContent = `${timesArray[i]}`;
+    thEl.textContent = timesArray[i];
     trEl.appendChild(thEl);
   }
   // add Daily Location total
@@ -84,15 +87,13 @@ function createHeading(timesArray) {
 createHeading(timesFormatArray);
 
 // Call on GenerateArrayCookiePerHour, GenerateTotalSum, and Render ////
-function callOnGenerateAndRender(array) {
+function callOnRender(array) {
   for (var i = 0; i < array.length; i++) {
-    array[i].generateArrayCookiePerHour();
-    array[i].generateTotalSum();
     array[i].renderRow();
     console.log(array[i]);
   }
 }
-callOnGenerateAndRender(storeArray);
+callOnRender(storeArray);
 
 
 

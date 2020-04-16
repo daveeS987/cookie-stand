@@ -148,17 +148,21 @@ var totalOverAll = getOverallTotal(storeArray);
 
 
 function createTableFooter(arrayOfTotal) {
+  // create table row
   var pEl = document.getElementById('table');
   var trEl = document.createElement('tr');
   pEl.appendChild(trEl);
+  // start with totals entry
   var thEl = document.createElement('th');
   thEl.textContent = 'Totals';
   trEl.appendChild(thEl);
+  // get totals from arrayOfTotal
   for (var i = 0; i < arrayOfTotal.length; i++) {
     var tdEl = document.createElement('td');
     tdEl.textContent = `${arrayOfTotal[i]}`;
     trEl.appendChild(tdEl);
   }
+  // enter totalOverall at the end
   tdEl = document.createElement('td');
   tdEl.textContent = `${totalOverAll}`;
   trEl.appendChild(tdEl);

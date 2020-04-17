@@ -36,6 +36,9 @@ Store.prototype.generateTotalSum = function () {
   this.totalSum = sum;
 };
 
+
+var pEl = document.getElementById('table');
+
 Store.prototype.renderRow = function() {
   // create Row
   var pEl = document.getElementById('table');
@@ -64,9 +67,9 @@ new Store('Dubai', 11, 38, 3.7);
 new Store('Paris', 20, 38, 2.3);
 new Store('Lima', 2, 16, 4.6);
 
-var pEl = document.getElementById('table');
 
-function createHeading(timesArray) {
+
+function createHeading() {
   // create table row
   var trEl = document.createElement('tr');
   pEl.appendChild(trEl);
@@ -74,9 +77,9 @@ function createHeading(timesArray) {
   var thEl = document.createElement('th');
   trEl.appendChild(thEl);
   // add Times heading
-  for (var i = 0; i < timesArray.length; i++) {
+  for (var i = 0; i < timesFormatArray.length; i++) {
     thEl = document.createElement('th');
-    thEl.textContent = timesArray[i];
+    thEl.textContent = timesFormatArray[i];
     trEl.appendChild(thEl);
   }
   // add Daily Location total
@@ -84,16 +87,58 @@ function createHeading(timesArray) {
   thElTotal.textContent = 'Daily Location Total';
   trEl.appendChild(thElTotal);
 }
-createHeading(timesFormatArray);
+createHeading();
 
-// Call on GenerateArrayCookiePerHour, GenerateTotalSum, and Render ////
-function callOnRender(array) {
-  for (var i = 0; i < array.length; i++) {
-    array[i].renderRow();
-    console.log(array[i]);
+
+function createTableBody() {
+  for (var i = 0; i < storeArray.length; i++) {
+    storeArray[i].renderRow();
   }
 }
-callOnRender(storeArray);
+createTableBody(storeArray);
+
+
+function createTableFooter() {
+  // create table row
+  var trEl = document.createElement('tr');
+  pEl.appendChild(trEl);
+  // start with totals entry
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Totals';
+  trEl.appendChild(thEl);
+  // get totals from arrayOfTotal
+  var totalOverAll = 0;
+  for (var i = 0; i < timesFormatArray.length; i++) {
+    var total = 0;
+    for (var j = 0; j < storeArray.length; j++) {
+      total += storeArray[j].cookieSaleEveryHour[i];
+    }
+    var tdEl = document.createElement('td');
+    tdEl.textContent = total;
+    trEl.appendChild(tdEl);
+    totalOverAll += total;
+  }
+  // enter totalOverall at the end
+  tdEl = document.createElement('td');
+  tdEl.textContent = totalOverAll;
+  trEl.appendChild(tdEl);
+}
+createTableFooter();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -120,52 +165,3 @@ callOnRender(storeArray);
 // }
 // createStoreSalesTableBody(storeArray);
 
-
-
-function getTotalPerHour(storeArr) {
-  var hourlyTotalArray = [];
-  for (var i = 0; i < storeArr[0].cookieSaleEveryHour.length; i++) {
-    var total = 0;
-    for(var j = 0; j < storeArr.length; j++) {
-      total += storeArr[j].cookieSaleEveryHour[i];
-    }
-    hourlyTotalArray.push(total);
-  }
-  return hourlyTotalArray;
-}
-var arrayOfTotalPerHour = getTotalPerHour(storeArray);
-
-
-
-function getOverallTotal(storeArr) {
-  var total = 0;
-  for (var i = 0; i < storeArr.length; i++) {
-    total += storeArr[i].totalSum;
-  }
-  return total;
-}
-var totalOverAll = getOverallTotal(storeArray);
-
-
-
-function createTableFooter(arrayOfTotal) {
-  // create table row
-  var pEl = document.getElementById('table');
-  var trEl = document.createElement('tr');
-  pEl.appendChild(trEl);
-  // start with totals entry
-  var thEl = document.createElement('th');
-  thEl.textContent = 'Totals';
-  trEl.appendChild(thEl);
-  // get totals from arrayOfTotal
-  for (var i = 0; i < arrayOfTotal.length; i++) {
-    var tdEl = document.createElement('td');
-    tdEl.textContent = `${arrayOfTotal[i]}`;
-    trEl.appendChild(tdEl);
-  }
-  // enter totalOverall at the end
-  tdEl = document.createElement('td');
-  tdEl.textContent = `${totalOverAll}`;
-  trEl.appendChild(tdEl);
-}
-createTableFooter(arrayOfTotalPerHour);

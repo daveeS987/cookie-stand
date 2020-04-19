@@ -109,48 +109,61 @@ img {
   /* border: solid 2px green; */
 }
 
-
-
-
 #whoWeAre>img {
   width: 97%;
   overflow: auto;
 }
 
+
+
+
 footer {
   background-color: rgb(65, 64, 64);
-  /* margin-top: 100px; */
   width: 100%;
   overflow: auto;
   /* border: solid 1px blue; */
 }
 
-/* footer>img {
-  float: left;
-  width: 300px;
-  padding: 20px;
-  margin: 30px;
-} */
+section {
+  width: 1000px;
+  overflow: auto;
+  /* border: solid 1px green; */
+}
 
-footer>h2 {
+#footerHeading {
+  width: 1000px;
+  height: 200px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  margin-left: 241px;
+}
+
+#footerHeading>h2 {
   font-size: 40px;
-  padding: 50px;
   line-height: 1.2em;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: end;
   color: rgb(216, 216, 216);
-  margin-left: 150px;
-  padding-top: 65px;
-  width: 200px;
+  width: 180px;
   float: left;
-  height: 800px;
+  margin-right: 40px;
+  /* margin-top: 14px; */
   /* border: solid 1px yellow; */
 }
-footer p {
+
+#footerHeading>img {
+  width: 320px;
+  margin-left: 30px;
+  padding-top: 25px;
+}
+
+#footerHeading>p {
+  float: left;
+  font-size: 30px;
+  font-weight: 700;
   float: left;
   padding: 20px 20px 20px 0px;
   color: rgb(216, 216, 216);
-  font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.3em;
   width: 300px;
@@ -159,25 +172,38 @@ footer p {
   border-bottom: solid 3px rgb(203, 145, 0);
 }
 
-section {
-  /* border: solid 1px blue; */
+#locations {
   width: 800px;
-  float: left;
-  padding-top: 50px;
+  margin-left: 461px;
+  padding-bottom: 80px
 }
 
-section>img {
-  width: 320px;
-  margin-left: 30px;
-  padding-top: 25px;
+#locations>p {
+  float: left;
+  padding: 20px 20px 20px 0px;
+  margin: 30px;
+  width: 300px;
+  color: rgb(216, 216, 216);
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.3em;
+  /* border: solid 1px yellow; */
+  border-bottom: solid 3px rgb(203, 145, 0);
+
 }
 
-section>p {
-  float: left;
-  font-size: 30px;
-  font-weight: 700;
-  
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
 th {
   border-style: solid;
@@ -190,6 +216,7 @@ td {
   border-style: solid;
   border-width: 1px;
   padding: 15px;
+  text-align: right;
 }
 
 table {
@@ -229,3 +256,4 @@ button {
   font-size: 20px;
   text-align: center;
 }
+

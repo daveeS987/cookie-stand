@@ -7,30 +7,18 @@ var storeArray = [];
 var pEl = document.getElementById('table');
 var trEl = document.createElement('tr');
 
+
 function addElementToPage(elementType, content, parentEl) {
   var newEl = document.createElement(elementType);
   newEl.textContent = content;
   parentEl.appendChild(newEl);
 }
 
+
 function createRowElement() {
   trEl = document.createElement('tr');
   pEl.appendChild(trEl);
 }
-
-function addElement(parentElement, elementType, content = undefined) {
-  var newEl;
-  if (content) {
-    newEl = document.createElement(elementType);
-    newEl.textContent = content;
-    parentElement.appendChild(newEl);
-  } else {
-    newEl = document.createElement(elementType);
-    parentElement.appendChild(newEl);
-  }
-}
-
-
 
 
 function Store(storeName, minHourlyCustomer, maxHourlyCustomer, avgCookiePerCustomer, cookieSaleEveryHour = []) {
@@ -61,7 +49,6 @@ Store.prototype.generateArrayCookiePerHour = function () {
 
 Store.prototype.renderRow = function() {
   createRowElement();
-  // addElement(pEl, 'tr');
   addElementToPage('th', this.storeName, trEl);
   var total = 0;
   for (var i = 0; i < this.cookieSaleEveryHour.length; i++) {
@@ -76,7 +63,6 @@ function createHeading() {
   createRowElement();
   var thEl = document.createElement('th');
   trEl.appendChild(thEl);
-  // createHeaderElement();
   for (var i = 0; i < timesFormatArray.length; i++) {
     addElementToPage('th', timesFormatArray[i], trEl);
   }

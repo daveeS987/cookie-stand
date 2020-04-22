@@ -202,7 +202,9 @@ section {
 
 
 
-
+tr.even {
+  background-color: khaki;
+}
 
 
 th {
@@ -242,10 +244,7 @@ legend {
 }
 
 
-label {
-  margin: 20px;
-  padding: 10px;
-}
+
 
 button {
   padding: 10px;
@@ -257,3 +256,8 @@ button {
   text-align: center;
 }
 
+label {
+  margin: 20px;
+  padding: 10px;
+  text-align: right;
+}

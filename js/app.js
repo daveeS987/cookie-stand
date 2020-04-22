@@ -21,29 +21,34 @@ function createRowElement() {
 }
 
 
-function Store(storeName, minHourlyCustomer, maxHourlyCustomer, avgCookiePerCustomer, cookieSaleEveryHour = []) {
+function Store(storeName, minHourlyCustomer, maxHourlyCustomer, avgCookiePerCustomer) {
   this.storeName = storeName;
   this.minHourlyCustomer = minHourlyCustomer;
   this.maxHourlyCustomer = maxHourlyCustomer;
   this.avgCookiePerCustomer = avgCookiePerCustomer;
-  this.cookieSaleEveryHour = cookieSaleEveryHour;
+  this.cookieSaleEveryHour = [];
   this.generateArrayCookiePerHour();
   this.renderRow();
   storeArray.push(this);
 }
 
+// turn this into a random generator and global function
+function generateRandomNum(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
-Store.prototype.generateNumberOfCustomer = function () {
-  return Math.floor(Math.random() * (this.maxHourlyCustomer - this.minHourlyCustomer + 1) + this.minHourlyCustomer);
-};
+
+// Store.prototype.generateNumberOfCustomer = function () {
+//   return Math.floor(Math.random() * (this.maxHourlyCustomer - this.minHourlyCustomer + 1) + this.minHourlyCustomer);
+// };
 
 
 Store.prototype.generateArrayCookiePerHour = function () {
-  var cookieSales = [];
+  // var cookieSales = [];
   for (var i = 0; i < 14; i++) {
-    cookieSales.push(Math.round(this.generateNumberOfCustomer() * this.avgCookiePerCustomer));
+    this.cookieSaleEveryHour.push(Math.round(generateRandomNum(this.minHourlyCustomer, this.maxHourlyCustomer) * this.avgCookiePerCustomer));
   }
-  this.cookieSaleEveryHour = cookieSales;
+  // this.cookieSaleEveryHour = cookieSales;
 };
 
 

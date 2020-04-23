@@ -101,9 +101,9 @@ function handleSubmit (event) {
   event.preventDefault();
 
   var storeName = event.target.store.value;
-  var minCust = event.target.minHourly.value;
-  var maxCust = event.target.maxHourly.value;
-  var avg = event.target.average.value;
+  var minCust = parseInt(event.target.minHourly.value);
+  var maxCust = parseInt(event.target.maxHourly.value);
+  var avg = parseInt(event.target.average.value);
 
   var lastChild = pEl.lastChild;
   pEl.removeChild(lastChild);

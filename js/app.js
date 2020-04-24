@@ -5,19 +5,13 @@ var timesFormatArray = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:0
 
 var storeArray = [];
 var pEl = document.getElementById('table');
-var trEl = document.createElement('tr');
 
 
 function addElementToPage(elementType, content, parentEl) {
   var newEl = document.createElement(elementType);
   newEl.textContent = content;
   parentEl.appendChild(newEl);
-}
-
-
-function createRowElement() {
-  trEl = document.createElement('tr');
-  pEl.appendChild(trEl);
+  return newEl;
 }
 
 
@@ -48,7 +42,7 @@ Store.prototype.generateArrayCookiePerHour = function () {
 
 
 Store.prototype.renderRow = function() {
-  createRowElement();
+  var trEl = addElementToPage('tr', '', pEl);
   addElementToPage('th', this.storeName, trEl);
   var total = 0;
   for (var i = 0; i < this.cookieSaleEveryHour.length; i++) {
@@ -60,9 +54,8 @@ Store.prototype.renderRow = function() {
 
 
 function createHeading() {
-  createRowElement();
-  var thEl = document.createElement('th');
-  trEl.appendChild(thEl);
+  var trEl = addElementToPage('tr', '', pEl);
+  addElementToPage('th', '', trEl);
   for (var i = 0; i < timesFormatArray.length; i++) {
     addElementToPage('th', timesFormatArray[i], trEl);
   }
@@ -71,7 +64,7 @@ function createHeading() {
 
 
 function createTableFooter() {
-  createRowElement();
+  var trEl = addElementToPage('tr', '', pEl);
   addElementToPage('th', 'Totals', trEl);
   var totalOverAll = 0;
   for (var i = 0; i < timesFormatArray.length; i++) {
@@ -84,7 +77,6 @@ function createTableFooter() {
   }
   addElementToPage('td', totalOverAll, trEl);
 }
-
 
 
 createHeading();

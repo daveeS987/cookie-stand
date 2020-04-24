@@ -105,11 +105,11 @@ h1{
   padding-bottom: 15px;
   font-size: 35px;
   font-weight: bold;
-  /* font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', cursive;
   font-family: 'Oswald', sans-serif;
-  font-family: 'Nunito Sans', sans-serif; */
-  font-family: Arial, Helvetica, sans-serif;
-  /* letter-spacing: .1em; */
+  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: .1em;
   padding: 20px;
   background-color: rgb(203, 145, 0);
   overflow: auto;
@@ -218,11 +218,11 @@ section {
 
 
 table {
-  background-color: rgb(249, 249, 249);
+  background-color: rgb(255, 255, 255);
 }
 
 tr:nth-child(even) {
-  background-color: rgb(228, 228, 228);
+  background-color: rgb(237, 237, 237);
 }
 th {
   border-style: solid;

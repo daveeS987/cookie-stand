@@ -208,7 +208,9 @@ section {
 }
 
 
-
+table {
+  background-color: rgb(233, 233, 233);
+}
 
 
 
@@ -219,6 +221,7 @@ section {
 
 table {
   background-color: rgb(255, 255, 255);
+
 }
 
 tr:nth-child(even) {
@@ -262,10 +265,7 @@ legend {
 }
 
 
-label {
-  margin: 20px;
-  padding: 10px;
-}
+
 
 button {
   padding: 10px;
@@ -277,3 +277,8 @@ button {
   text-align: center;
 }
 
+label {
+  margin: 20px;
+  padding: 10px;
+  text-align: right;
+}

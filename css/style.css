@@ -32,7 +32,6 @@ ul {
   /* border: solid 1px green; */
 }
 
-
 li {
   text-align: center;
   display: inline;
@@ -59,13 +58,11 @@ article {
   /* border: solid 1px rgb(235, 6, 208); */
 }
 
-
-article>img{
+article>img {
   padding: 15px;
   float: left;
   width: 40%
 }
-
 
 aside {
   width: 45%;
@@ -90,7 +87,7 @@ p {
   /* border: solid 1px pink; */
 }
 
-h1{
+h1 {
   text-align: center;
   padding-bottom: 15px;
   font-size: 30px;
@@ -100,9 +97,11 @@ h1{
   background-color: rgb(203, 145, 0);
   overflow: auto;
 }
-main{
+
+main {
   overflow: auto;
 }
+
 img {
   margin-left: auto;
   margin-right: auto;
@@ -113,9 +112,6 @@ img {
   width: 97%;
   overflow: auto;
 }
-
-
-
 
 footer {
   background-color: rgb(65, 64, 64);
@@ -189,9 +185,7 @@ section {
   line-height: 1.3em;
   /* border: solid 1px yellow; */
   border-bottom: solid 3px rgb(203, 145, 0);
-
 }
-
 
 table {
   background-color: rgb(233, 233, 233);
@@ -200,8 +194,6 @@ table {
 tr:nth-child(even) {
   background-color: rgb(250, 250, 250);
 }
-
-
 
 th {
   border-style: solid;
@@ -238,9 +230,6 @@ legend {
   padding: 10px;
   font-size: 20px;
 }
-
-
-
 
 button {
   padding: 10px;

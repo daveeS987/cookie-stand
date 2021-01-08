@@ -1,53 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sales Data</title>
+    <link href="../css/reset.css" type="text/css" rel="stylesheet" />
+    <link href="../css/style.css" type="text/css" rel="stylesheet" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sales Data</title>
-  <link href="../css/reset.css" type="text/css" rel="stylesheet" />
-  <link href="../css/style.css" type="text/css" rel="stylesheet" />
-</head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="../index.html">HomePage</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form id="userForm">
+        <fieldset>
+          <legend>Add New Store Data</legend>
 
-<body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="../index.html">HomePage</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <form id="userForm">
-      <fieldset>
-        <legend>Add New Store Data</legend>
+          <label>Enter Store Name:</label>
+          <input id="store" type="text" placeholder="Houston" required />
+          <br />
 
-        <label>Enter Store Name:</label>
-        <input id="store" type="text" placeholder="Houston" required>
-        <br>
+          <label>Enter Minimum Customer Per Hour:</label>
+          <input id="minHourly" type="number" placeholder="1" required />
+          <br />
 
-        <label>Enter Minimum Customer Per Hour:</label>
-        <input id="minHourly" type="number" placeholder="1" required>
-        <br>
+          <label>Enter Maximum Customer Per Hour:</label>
+          <input id="maxHourly" type="number" placeholder="99" required />
+          <br />
 
-        <label>Enter Maximum Customer Per Hour:</label>
-        <input id="maxHourly" type="number" placeholder="99" required>
-        <br>
+          <label>Enter Average Cookie Sale per Customer:</label>
+          <input id="average" type="number" placeholder="10" required />
+          <br />
 
-        <label>Enter Average Cookie Sale per Customer:</label>
-        <input id="average" type="number" placeholder="10" required>
-        <br>
+          <button value="submit">Submit</button>
+        </fieldset>
+      </form>
 
-        <button value="submit">Submit</button>
+      <table id="table"></table>
+    </main>
 
-      </fieldset>
-    </form>
-    <table id="table">
-
-    </table>
-  </main>
-
-  <script src="../js/app.js"></script>
-</body>
-
+    <script src="../js/app.js"></script>
+  </body>
 </html>

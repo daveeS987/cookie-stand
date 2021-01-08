@@ -2,11 +2,9 @@
 
 var timesFormatArray = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 
-
 var storeArray = [];
 var pEl = document.getElementById('table');
 var trEl = document.createElement('tr');
-
 
 function addElementToPage(elementType, content, parentEl) {
   var newEl = document.createElement(elementType);
@@ -14,12 +12,10 @@ function addElementToPage(elementType, content, parentEl) {
   parentEl.appendChild(newEl);
 }
 
-
 function createRowElement() {
   trEl = document.createElement('tr');
   pEl.appendChild(trEl);
 }
-
 
 function Store(storeName, minHourlyCustomer, maxHourlyCustomer, avgCookiePerCustomer) {
   this.storeName = storeName;
@@ -37,11 +33,9 @@ function generateRandomNum(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-
 // Store.prototype.generateNumberOfCustomer = function () {
 //   return Math.floor(Math.random() * (this.maxHourlyCustomer - this.minHourlyCustomer + 1) + this.minHourlyCustomer);
 // };
-
 
 Store.prototype.generateArrayCookiePerHour = function () {
   // var cookieSales = [];
@@ -51,8 +45,7 @@ Store.prototype.generateArrayCookiePerHour = function () {
   // this.cookieSaleEveryHour = cookieSales;
 };
 
-
-Store.prototype.renderRow = function() {
+Store.prototype.renderRow = function () {
   createRowElement();
   addElementToPage('th', this.storeName, trEl);
   var total = 0;
@@ -63,7 +56,6 @@ Store.prototype.renderRow = function() {
   addElementToPage('td', total, trEl);
 };
 
-
 function createHeading() {
   createRowElement();
   var thEl = document.createElement('th');
@@ -73,7 +65,6 @@ function createHeading() {
   }
   addElementToPage('th', 'Daily Location Total', trEl);
 }
-
 
 function createTableFooter() {
   createRowElement();
@@ -90,8 +81,6 @@ function createTableFooter() {
   addElementToPage('td', totalOverAll, trEl);
 }
 
-
-
 createHeading();
 new Store('Seattle', 23, 65, 6.3);
 new Store('Tokyo', 3, 24, 1.2);
@@ -100,9 +89,7 @@ new Store('Paris', 20, 38, 2.3);
 new Store('Lima', 2, 16, 4.6);
 createTableFooter();
 
-
-
-function handleSubmit (event) {
+function handleSubmit(event) {
   event.preventDefault();
 
   var storeName = event.target.store.value;
@@ -123,6 +110,3 @@ function handleSubmit (event) {
 
 var userAnswer = document.getElementById('userForm');
 userAnswer.addEventListener('submit', handleSubmit);
-
-
-

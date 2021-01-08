@@ -4,7 +4,6 @@ var timesFormatArray = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:0
 
 var storeArray = [];
 var pEl = document.getElementById('table');
-var trEl = document.createElement('tr');
 
 function addElementToPage(elementType, content, parentEl) {
   var newEl = document.createElement(elementType);
@@ -57,9 +56,8 @@ Store.prototype.renderRow = function () {
 };
 
 function createHeading() {
-  createRowElement();
-  var thEl = document.createElement('th');
-  trEl.appendChild(thEl);
+  var trEl = addElementToPage('tr', '', pEl);
+  addElementToPage('th', '', trEl);
   for (var i = 0; i < timesFormatArray.length; i++) {
     addElementToPage('th', timesFormatArray[i], trEl);
   }
@@ -67,7 +65,7 @@ function createHeading() {
 }
 
 function createTableFooter() {
-  createRowElement();
+  var trEl = addElementToPage('tr', '', pEl);
   addElementToPage('th', 'Totals', trEl);
   var totalOverAll = 0;
   for (var i = 0; i < timesFormatArray.length; i++) {
@@ -93,9 +91,9 @@ function handleSubmit(event) {
   event.preventDefault();
 
   var storeName = event.target.store.value;
-  var minCust = event.target.minHourly.value;
-  var maxCust = event.target.maxHourly.value;
-  var avg = event.target.average.value;
+  var minCust = parseInt(event.target.minHourly.value);
+  var maxCust = parseInt(event.target.maxHourly.value);
+  var avg = parseInt(event.target.average.value);
 
   var lastChild = pEl.lastChild;
   pEl.removeChild(lastChild);
